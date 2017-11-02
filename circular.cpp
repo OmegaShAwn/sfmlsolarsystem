@@ -7,20 +7,23 @@ class planets{
 	public:
 	static int i;
 	CircleShape s;
-	float x, y, a, n, acc;
+	float x, y, a, n, acc, r;
 	planets(){
 		i++;
 		n = i;
+		r = rand()%2;
 		acc = rand()%9+1;
 		acc = acc/3000;
-		s.setRadius(11-n);
+		if(r == 0)
+			acc = acc*-1;
+		s.setRadius(rand()%10+3);
 		a = 90;
 		s.setFillColor(Color(rand()%255, rand()%255, rand()%255));
 	}
 	void setpos(){
 		a = a + acc;
 		x = 400-11+n + cos(a)*((9-n)*40+50);
-		y = 300-11+n + sin(a)*((9-n)*20+50);
+		y = 300-11+n + sin(a)*((9-n)*30+50);
 		s.setPosition(x,y);
 	}
 };
@@ -43,6 +46,9 @@ int main(){
 	settings.antialiasingLevel = 8;
 	RenderWindow window(VideoMode(800, 600), "circular", Style::Default, settings);
 	CircleShape s(50);
+	CircleShape m(3);
+	float ac;
+	m.setFillColor(Color::White);
 	s.setFillColor(Color::Yellow);
 	s.setPosition(350, 250);
 	stars st[50];
@@ -66,6 +72,11 @@ int main(){
 			pl[i].setpos();
 			window.draw(pl[i].s);
 		}
+		ac = ac + .002;
+		float x = pl[5].x + pl[5].s.getRadius() - 3 + cos(ac)*(pl[5].s.getRadius() + 7);
+		float y = pl[5].y + pl[5].s.getRadius() - 3 + sin(ac)*(pl[5].s.getRadius() + 7);
+		m.setPosition(x, y);
+		window.draw(m);
 		window.draw(s);
 		window.display();
 	}
