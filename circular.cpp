@@ -16,14 +16,14 @@ class planets{
 		acc = acc/3000;
 		if(r == 0)
 			acc = acc*-1;
-		s.setRadius(rand()%10+3);
+		s.setRadius(rand()%8+5);
 		a = 90;
 		s.setFillColor(Color(rand()%255, rand()%255, rand()%255));
 	}
 	void setpos(){
 		a = a + acc;
 		x = 400-11+n + cos(a)*((9-n)*40+50);
-		y = 300-11+n + sin(a)*((9-n)*30+50);
+		y = 300-11+n + sin(a)*((9-n)*29+50);
 		s.setPosition(x,y);
 	}
 };
