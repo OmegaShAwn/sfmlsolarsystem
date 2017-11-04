@@ -13,7 +13,7 @@ class planets{
 		n = i;
 		r = rand()%2;
 		acc = rand()%9+1;
-		acc = acc/3000;
+		acc = acc/10000;
 		if(r == 0)
 			acc = acc*-1;
 		s.setRadius(rand()%8+5);
@@ -73,8 +73,8 @@ int main(){
 			window.draw(pl[i].s);
 		}
 		ac = ac + .002;
-		float x = pl[5].x + pl[5].s.getRadius() - 3 + cos(ac)*(pl[5].s.getRadius() + 7);
-		float y = pl[5].y + pl[5].s.getRadius() - 3 + sin(ac)*(pl[5].s.getRadius() + 7);
+		float x = pl[5].x + pl[5].s.getRadius() - 3 + cos(ac)*(pl[5].s.getRadius() + 10);
+		float y = pl[5].y + pl[5].s.getRadius() - 3 + sin(ac)*(pl[5].s.getRadius() + 5);
 		m.setPosition(x, y);
 		window.draw(m);
 		window.draw(s);
